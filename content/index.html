@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Language" content="pl">
+<style>
+hr {padding: 0px; margin: 0px;}
+pre {padding: 0px; margin: 0px;}
+</style>
+</head>
+
+<body bgcolor=#fff7ef>
+
+<h1>Zadanie – Labirynt z kluczami</h1>
+
+<h2>Opis zadania</h2>
+<p>
+    Bajtazar utknął w labiryncie będącym prostokątną planszą złożoną z <tt>n</tt> wierszy
+    i <tt>m</tt> kolumn. Z każdego pola może przejść na jedno z czterech sąsiednich pól
+    (góra, dół, lewo, prawo), a każdy taki ruch trwa jedną sekundę. Nie można opuszczać planszy.
+</p>
+<p>Pola planszy opisują następujące znaki:</p>
+<ul>
+    <li><tt>#</tt> – ściana, nie można na nią wejść,</li>
+    <li><tt>.</tt> – puste pole,</li>
+    <li><tt>S</tt> – pole startowe (dokładnie jedno),</li>
+    <li><tt>M</tt> – meta, czyli wyjście z labiryntu (dokładnie jedna),</li>
+    <li><tt>a</tt>–<tt>f</tt> – klucz danego rodzaju,</li>
+    <li><tt>A</tt>–<tt>F</tt> – drzwi, które otwiera klucz o odpowiadającej małej literze.</li>
+</ul>
+<p>
+    Pola <tt>S</tt> i <tt>M</tt> są dostępne tak samo jak puste pola (po polu <tt>S</tt>
+    można więc przejść ponownie), a dotarcie na pole <tt>M</tt> kończy podróż.
+</p>
+<p>
+    Klucz zostaje podniesiony automatycznie w chwili wejścia na jego pole i od tej pory Bajtazar
+    ma go do końca podróży (podniesienie nie kosztuje czasu). Na drzwi można wejść wtedy i tylko wtedy,
+    gdy Bajtazar posiada odpowiedni klucz, a użycie klucza go nie zużywa. Na planszy może znajdować się
+    wiele kluczy tego samego rodzaju oraz wiele drzwi tego samego rodzaju. Dla niektórych drzwi
+    może nie być żadnego klucza.
+</p>
+<p>
+    Wyznacz najmniejszą liczbę sekund potrzebną na dotarcie z pola <tt>S</tt> na pole <tt>M</tt>.
+</p>
+
+<h2>Wejście</h2>
+<p>
+    <ul>
+        <li>
+            W pierwszym wierszu znajdują się dwie liczby całkowite <tt>n</tt> i <tt>m</tt>
+            oznaczające wymiary planszy.
+        </li>
+        <li>
+            W każdym z kolejnych <tt>n</tt> wierszy znajduje się napis długości <tt>m</tt>
+            złożony ze znaków <tt>#.SMabcdefABCDEF</tt>, opisujący jeden wiersz planszy.
+        </li>
+        <li>Na planszy występuje dokładnie jedno pole <tt>S</tt> i dokładnie jedno pole <tt>M</tt>.</li>
+    </ul>
+</p>
+
+<h2>Wyjście</h2>
+<p>
+    <ul>
+        <li>
+            W jedynej linii wyjścia ma znaleźć się jedna liczba całkowita: minimalna liczba sekund
+            potrzebna na dotarcie z <tt>S</tt> do <tt>M</tt>, albo <tt>-1</tt>, jeśli jest to niemożliwe.
+        </li>
+    </ul>
+</p>
+
+<h2>Dodatkowe ograniczenia i wymagania</h2>
+<p>
+    <ul>
+        <li><tt>1 ≤ n, m ≤ 500</tt>, <tt>n · m ≥ 2</tt>.</li>
+        <li>Limit czasu: 2 s.</li>
+        <li>Limit pamięci: 256 MB.</li>
+    </ul>
+</p>
+
+<h2>Przykładowe wejście 1</h2>
+<p>Dla danych:</p>
+<hr/>
+<pre><tt>5 6
+S...#M
+.##.#A
+.a#.#.
+.##...
+......
+</tt></pre>
+<hr/>
+<p>Poprawnym wyjściem jest:</p>
+<hr/>
+<pre><tt>15
+</tt></pre>
+<hr/>
+<p>
+    Jedyna droga do mety prowadzi przez drzwi <tt>A</tt>. Bajtazar musi najpierw zejść po klucz
+    <tt>a</tt> (3 ruchy), a następnie wrócić i obejść labirynt dołem, co daje łącznie 15 ruchów.
+</p>
+
+<h2>Przykładowe wejście 2</h2>
+<p>Dla danych:</p>
+<hr/>
+<pre><tt>1 5
+S.AaM
+</tt></pre>
+<hr/>
+<p>Poprawnym wyjściem jest:</p>
+<hr/>
+<pre><tt>-1
+</tt></pre>
+<hr/>
+<p>
+    Klucz <tt>a</tt> leży za drzwiami <tt>A</tt>, więc Bajtazar nigdy go nie zdobędzie,
+    a drzwi są jedyną drogą do mety.
+</p>
+
+</body>
+
+</html>
